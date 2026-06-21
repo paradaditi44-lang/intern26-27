@@ -36,15 +36,5 @@ let shiftedele = fruits.shift();
 console.log(fruits);
 console.log(shiftedele);
 
-/*
- The shift() function lets you remove an item from the start
- of an array. 
- 
- The the unshift() function adds one or more items to the
- start of an array. 
 
-*/
 
-//---------------------------------------------------------------
-
-/* Push Pop is faster than shift unshift */
