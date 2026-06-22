@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Size Changer</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#1f1f1f,#000);
+    font-family: Arial, sans-serif;
+}
+
+.container{
+    background:#111;
+    padding:30px;
+    border-radius:15px;
+    width:320px;
+    text-align:center;
+    box-shadow:0 0 20px rgba(0,255,255,0.2);
+}
+
+h1{
+    color:#fff;
+    margin-bottom:20px;
+}
+
+#text{
+    font-size:18px;
+    color:#ccc;
+    margin-bottom:25px;
+    transition:0.2s ease;
+}
+
+/* Buttons */
+button{
+    padding:10px 18px;
+    font-size:18px;
+    margin:0 8px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+/* Increase button */
+#increaseBtn{
+    background:#00cfff;
+    color:#000;
+}
+
+#increaseBtn:hover{
+    background:#00a8d6;
+}
+
+/* Decrease button */
+#decreaseBtn{
+    background:#ff4d4d;
+    color:#fff;
+}
+
+#decreaseBtn:hover{
+    background:#d63a3a;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Text Size Controller</h1>
+
+    <p id="text">This is some sample text.</p>
+
+    <button id="increaseBtn">A+</button>
+    <button id="decreaseBtn">A-</button>
+</div>
+
+<script>
+const increaseBtn = document.querySelector("#increaseBtn");
+const decreaseBtn = document.querySelector("#decreaseBtn");
+const textElement = document.querySelector("#text");
+
+increaseBtn.addEventListener("click", increaseFontSize);
+decreaseBtn.addEventListener("click", decreaseFontSize);
+
+function increaseFontSize(){
+    let size = parseInt(getComputedStyle(textElement).fontSize);
+    textElement.style.fontSize = (size + 2) + "px";
+}
+
+function decreaseFontSize(){
+    let size = parseInt(getComputedStyle(textElement).fontSize);
+
+    // minimum limit
+    if(size > 10){
+        textElement.style.fontSize = (size - 2) + "px";
+    }
+}
+</script>
+
+</body>
+</html>
